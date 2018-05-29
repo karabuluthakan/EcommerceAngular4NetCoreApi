@@ -1,0 +1,52 @@
+<h1>Detail Page</h1>
+
+<h2>Hoşgeldin {{user.Firstname}} </h2>
+
+<div class="row justify-content-center">
+    <div class="col-md-6">
+      <div class="card mx-4">
+        <div class="card-body p-4">
+          <form  >
+          <h1>Güncelleme</h1>
+          <p class="text-muted">Kullanıcı güncelleme formu</p>
+          <div class="input-group mb-3">
+            <span class="input-group-addon"><i class="icon-user"></i></span>
+            <input #Firstname="ngModel" required name="Firstname" minlength="2" 
+            [(ngModel)="userModel.Firstname"] type="text" class="form-control"
+             placeholder="Firstname" ngModel [ngClass]="Firstname.valid || Firstname.pristine ? 'form-control':'form-control is-invalid'">
+          </div>
+          <div class="input-group mb-3">
+              <span class="input-group-addon"><i class="icon-user"></i></span>
+              <input #Lastname="ngModel" required name="Lastname" minlength="2"
+               [(ngModel)="userModel.Lastname"] type="text" class="form-control" 
+               ngModel [ngClass]="Lastname.valid || Lastname.pristine ? 'form-control':'form-control is-invalid'"
+               placeholder="Lastname" ngModel>
+            </div> 
+          <div class="input-group mb-3">
+              <span class="input-group-addon">@</span>
+              <input #Email="ngModel" required name="Email" [(ngModel)="userModel.Email"]
+               type="text" class="form-control" placeholder="Email" ngModel
+               pattern="^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$" 
+               ngModel [ngClass]="Email.valid || Email.pristine ? 'form-control':'form-control is-invalid'">
+            </div>
+            <div class="input-group mb-3">
+                <span class="input-group-addon"><i class="icon-phone"></i></span>
+                <input #Phonenumber="ngModel" required name="Phonenumber" minlength="10" maxlength="13" 
+                 [(ngModel)="userModel.Phonenumber"] type="number" class="form-control" 
+                 ngModel [ngClass]="Phonenumber.valid || Phonenumber.pristine ? 'form-control':'form-control is-invalid'"
+                 placeholder="Phonenumber" ngModel>
+              </div>  
+
+          <div class="input-group mb-3">
+            <span class="input-group-addon"><i class="icon-lock"></i></span>
+            <input #Password="ngModel" required name="Password" [(ngModel)="userModel. Password"] minlength="6"
+             type="password" class="form-control" placeholder="Password" ngModel
+             ngModel [ngClass]="Password.valid || Password.pristine ? 'form-control':'form-control is-invalid'">
+          </div> 
+
+          <button type="submit" [disabled]="!form.valid" class="btn btn-block btn-success" (click)="UpdateUser()">Güncelle</button>
+        </form>
+        </div> 
+      </div>
+    </div>
+  </div>
